@@ -1,0 +1,30 @@
+{
+  "name": "Doosan ROS2 Env",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": "..",
+    "args": {}
+  },
+  "features": {},
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.cpptools",
+        "ms-python.python",
+        "ms-iot.vscode-ros",
+        "ms-azuretools.vscode-docker"
+      ]
+    }
+  },
+  "mounts": [
+    "source=${localWorkspaceFolder},target=/workspace,type=bind"
+  ],
+  "workspaceFolder": "/workspace",
+  "remoteUser": "root",
+  "runArgs": [
+    "--cap-add=NET_ADMIN",
+    "--net=host",
+    "--env=DISPLAY",
+    "--volume=/tmp/.X11-unix:/tmp/.X11-unix:rw"
+  ]
+}
